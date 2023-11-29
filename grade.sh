@@ -22,7 +22,7 @@ cp -r ./lib ./grading-area
 
 cd grading-area
 
-javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java
+javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
 
 if [[ $? == 0 ]]
 then
@@ -33,7 +33,7 @@ else
 fi
 
 
-java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples > ./gradeResults.txt
+java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore TestListExamples > ./gradeResults.txt
 # resultLine=`grep -n 'Tests run' ./gradeResults.txt`
 # runTests1=$(echo ${resultLine} | cut -d ' ' -f 3)
 # runTests2=$(echo ${runTests1} | cut -d ',' -f 1)
